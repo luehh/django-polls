@@ -1,0 +1,13 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <h1>Listar Enquetes</h1>
+
+    <ul>
+        {% for question in questions %}
+            <li>{{ question.question_text }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'question-create' %}">Criar uma nova enquete</a>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+    <title>{% block title %}App de Enquetes{% endblock %}</title>
+</head>
+<body>
+    <header><h2>Cabeçalho</h2></header>
+    <br>
+    <img src="{% static 'polls/img/duu.png' %}" width="300">
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    <br>
+    <footer><h2>Rodapé</h2></footer> 
+</body>
+</html>
