@@ -1,0 +1,14 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <h1>Detalhes da Enquete</h1>
+    <p>{{ question.question_text }}</p>
+
+    <p>Data da Publicação: {{ question.pub_date }}</p>
+
+    <ul>
+        <li><a href="{% url 'question-list' %}">Listar Enquetes</a></li>
+        <li><a href="{% url 'question-delete' question.pk %}">Deletar Enquete</a></li>
+    </ul>
+
+{% endblock content%}

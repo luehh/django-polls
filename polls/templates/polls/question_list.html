@@ -5,9 +5,26 @@
 
     <ul>
         {% for question in questions %}
-            <li>{{ question.question_text }}</li>
+            <li><a href="{% url 'question-detail' question.pk %}">{{ question.question_text }}</a></li>
         {% endfor %}
     </ul>
 
     <a href="{% url 'question-create' %}">Criar uma nova enquete</a>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            {% endif %}
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">próxima</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">&raquo; última</a>
+            {% endif %}
+        </span>
+    </div>
+    
 {% endblock content %}
