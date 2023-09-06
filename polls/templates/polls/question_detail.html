@@ -9,6 +9,7 @@
     <ul>
         <li><a href="{% url 'question-list' %}">Listar Enquetes</a></li>
         <li><a href="{% url 'question-delete' question.pk %}">Deletar Enquete</a></li>
+        <li><a href="{% url 'question-update' question.pk%}">Atualizar Enquete</a></li>
     </ul>
 
 {% endblock content%}
