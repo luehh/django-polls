@@ -1,0 +1,19 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <h1>Confirmar Deleção</h1>
+    <p>Deseja realmente deletar a enquete "{{ question.question_text }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="submit" value="Sim, deletar">
+
+    </form>
+
+    <ul>
+        <li> <a href="{% url 'question-detail' question.pk %}"> Cancelar </a> </li>
+        <li> <a href="{% url 'question-list' %}"> Voltar para lista das enquetes </a> </li>
+    </ul>
+
+    {% endblock content %}
