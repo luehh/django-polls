@@ -2,6 +2,8 @@ from multiprocessing import context
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import Question 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     latest_question_list = Question.objects.order_by("-pub_date")[:5]
@@ -39,7 +41,7 @@ class QuestionDetailView(DetailView):
     model = Question
     context_object_name = 'question'
 
-class QuestionDeleteView(DeleteView):
+class QuestionDeleteView(LoginRequiredMixin, DeleteView):
     model = Question
     success_url = reverse_lazy("question-list")
     success_message = "Enquete excluída com sucesso."
