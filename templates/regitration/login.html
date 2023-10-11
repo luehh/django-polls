@@ -1,12 +1,16 @@
-{% extends '_layout1.html' %} 
+{% extends '_layout1.html' %} {# herda tudo que já tem em _layout1.html #}
 
-{% block content %} 
-    <h1 class="card-title">Acessar</h1>
-
+{% block content %} {# substitui  o bloco content em _layout1.html #}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Acessar</h5>
+    </div>
+    <div class="card-body">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-success">Enviar</button>
         </form>
-    
-{% endblock %} 
+    </div>
+</div>
+{% endblock %} {# fecha o bloco content #}
